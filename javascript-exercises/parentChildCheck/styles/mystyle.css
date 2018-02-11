@@ -1,0 +1,17 @@
+#container {
+  height: 100px;
+  width: 200px;
+  overflow: auto;
+  border: 0px solid black;
+}
+
+
+.children_container {
+  position: relative;
+  left: 15px;
+  width: 90%;
+  display: none;
+}
+
+.parent_container{
+}

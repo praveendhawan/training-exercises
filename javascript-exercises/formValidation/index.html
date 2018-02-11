@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="./styles/mystyle.css">
+</head>
+<body>
+  <div class="form-box">
+    <h3 id="heading">Registration Form</h3>
+    <form method="Post" class="myform">
+      <ul>
+        <li>
+          <div class="label"><label for="login-id"><b>Login ID</b></label></div>
+          <div class="widget"><input type="text" id="login-id" name="Login Id" class="validate_presence"></div>
+        </li>
+        <li>
+          <div class="label"><label for="email"><b>Email</b></label></div>
+          <div class="widget"><input type="text" id="email" name="Email" class="validate_presence"></div>
+        </li>
+        <li>
+          <div class="label"><label for="name"><b>Name</b></label></div>
+          <div class="widget"><input type="text" id="name" name="Name" class="validate_presence"></div>
+        </li>
+        <li>
+          <div class="label"><label for="timezone"><b>Timezone</b></label></div>
+          <div class="widget">
+            <select id="timezone">
+              <option value="gmt" selected><b>GMT</b></option>
+            </select>
+          </div>
+        </li>
+        <li>
+          <div class="label"><label for="home-page"><b>Home Page</b></label></div>
+          <div class="widget"><input type="text" id="home-page" name="Home Page" class="validate_presence"></div>
+        </li>
+        <li>
+          <div class="label"><label for="about-me"><b>About Me</b></label></div>
+        </li>
+      </ul>
+      <textarea id="about-me" name="About Me" class="validate_presence validate_minimum_length"></textarea>
+      <div class="widget"><input type="checkbox" id="notification"></div>
+      <div class="label"><label for="notification"><b>Recieve notification of comments</b></label></div>
+      <p style="margin-bottom: 16px; margin-top: 0px;"> You will be sent an email when someone posts commments to your Blog or Album.</p>
+      <p style="text-align:center;margin-top: 0px;margin-bottom: 0px;">Your Password will be emailed to you.</p>
+      <input type="submit" value="Go" id="btn-submit">
+    </form>
+  </div>
+  <script type="text/javascript" src="./javascripts/formValidation.js"></script>
+</body>
+</html>

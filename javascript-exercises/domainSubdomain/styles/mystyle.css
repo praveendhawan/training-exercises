@@ -1,0 +1,41 @@
+.form-box {
+  margin-left: auto;
+  margin-right: auto;
+  background: #d6ffd6;
+  border: 1px solid #bcbcbc;
+  width: 500px;
+}
+
+.form-box ul {
+  display: table;
+  list-style-type: none;
+}
+
+.form-box ul li {
+  display: table-row;
+  margin-top: 1em;
+}
+
+.label{
+  padding-top: 16px;
+  display: table-cell;
+}
+
+.widget{
+  padding-left: 20px;
+  padding-top: 16px;
+  display: table-cell;
+}
+
+#submit-button {
+  background: #2E3D00;
+  width: 100px;
+  position: relative;
+  color: white;
+  left: 200px;
+  margin-bottom: 10px;
+}
+
+.input-url {
+  width: 300px;
+}
