@@ -1,0 +1,9 @@
+[submodule "OopsEmployee"]
+	path = OopsEmployee
+	url = ./OopsEmployee
+[submodule "OopsFacebook"]
+	path = OopsFacebook
+	url = ./OopsFacebook/
+[submodule "OopsVTapp"]
+	path = OopsVTapp
+	url = ./OopsVTapp
