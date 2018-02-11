@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+  <div class="contact-manager">
+    <form class="add-contact">
+      <label> Name: </label>
+      <input type="text" for="name" class="name">
+      <label> Email: </label>
+      <input type="text" for="email" class="email">
+      <input type="submit" value="Add Contact" class="addBtn">
+    </form>
+    <form class="search-contact">
+      <label>Search:</label>
+      <input type="text" for="search" class="search">
+    </form>
+    <input type="button" value="List View" class="listViewBtn">
+    <input type="button" value="Grid View" class="gridViewBtn">
+  </div>
+  <div class="contact-details"></div>
+  <script src="libs/jquery-1.11.3.js"></script>
+  <script src="js/contact.js"></script>
+  <script src="js/email.js"></script>
+  <script src="js/contact_managerNew.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+#stack {
+  width: 300px;
+  border:1px solid black;
+  margin: auto 0;
+}
+.container {
+  width: 600px;
+  margin: auto 0;
+}
+
+#addItem {
+  position: fixed;
+  left: 400px;
+  top: 10px;
+}
+
+.item {
+  width: 280px;
+  border: 1px solid blue;
+  padding: 10px;
+  height: 30px;
+  background: lightgreen;
+  color: black;
+}
+
+.chageColor {
+  background: red;
+}

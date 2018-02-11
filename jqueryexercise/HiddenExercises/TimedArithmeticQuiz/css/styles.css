@@ -1,0 +1,32 @@
+.container {
+  width: 600px;
+  background: lightgreen;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.answer {
+  width: 100px;
+  height: 20px;
+}
+.timer-container {
+  width: 200px;
+  position: relative;
+  left: 150px;
+  display: inline;
+}
+
+.timer {
+  width: 100px;
+  display: inline;
+  position: relative;
+  left: 10px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.btn-next {
+  background: blue;
+  color: white;
+  border: 1px solid blue;
+}

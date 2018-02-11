@@ -1,0 +1,6 @@
+div.contacts {
+  width: 200px;
+  border: 1px solid black;
+  display: inline-block;
+  margin-left: 10px;
+}

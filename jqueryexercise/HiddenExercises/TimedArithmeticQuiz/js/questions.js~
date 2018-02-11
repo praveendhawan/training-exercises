@@ -1,0 +1,43 @@
+function Question(min, max, operators) {
+  this.min = min;
+  this.max = max;
+  this.operators = operators;
+  var firstOperand  = this.chooseNumber(),
+  secondOperand = this.chooseNumber(),
+  operator = this.chooseOperator();
+  this.question = firstOperand + " " + operator + " " + secondOperand;
+  this.evaluate(firstOperand, secondOperand, operator);
+  this.userAnswer = '';
+}
+
+Question.prototype.chooseOperator = function() {
+  return this.operators[Math.floor(Math.random() * this.operators.length)];
+};
+
+Question.prototype.chooseNumber = function() {
+  return Math.floor(Math.random() * (this.max - this.min) + this.min);
+};
+
+Question.prototype.evaluate = function(firstOperand, secondOperand, operator) {
+  switch(operator) {
+    case '-':
+     this.actualResult = firstOperand - secondOperand;
+     break;
+     case '*':
+     this.actualResult = firstOperand * secondOperand;
+     break;
+     case '/':
+     this.actualResult = Math.floor(firstOperand / secondOperand);
+     break;
+     default:
+     this.actualResult = firstOperand + secondOperand;
+  }
+};
+
+Question.prototype.matchResult = function() {
+  return this.actualResult == this.userAnswer;
+};
+
+Question.prototype.storeUserAnswer = function(userAnswer) {
+  this.userAnswer = userAnswer;
+};

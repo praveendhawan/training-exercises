@@ -1,0 +1,83 @@
+function Quiz(argumentHash) {
+  this.timer = argumentHash.container.find('p.timer');
+  this.questiondiv = argumentHash.container.find('div.label label');
+  this.answerArea = argumentHash.container.find('.answer');
+  this.nextButton = argumentHash.container.find('.btn-next');
+  this.quitButton = argumentHash.container.find('.btn-quit');
+  this.scoreboard = argumentHash.container.find('span.score');
+  this.wrongquestionsDiv = argumentHash.container.find('div.wrongQuestions');
+  this.min = argumentHash.min;
+  this.max = argumentHash.max;
+  this.totalQuestions = argumentHash.totalQuestions;
+  this.timeLimit = argumentHash.timeLimit;
+  this.operators = argumentHash.operators;
+}
+
+Quiz.prototype.init = function() {
+  this.score = this.questionCounter = 0;
+  this.bindEvents();
+  this.resetTimer();
+  this.questionsAsked = [];
+  this.showQuestion();
+  this.intervalTimer = setInterval(this.setTimer(this), 1000);
+};
+
+Quiz.prototype.bindEvents = function() {
+  this.nextButton.on('click', this.trackScore());
+};
+
+Quiz.prototype.showQuestion = function() {
+  // make questionsAsked to a json/hash so that you can have something like {{question: question object, user_answer: useranswer}}
+  this.questionsAsked.push(new Question(this.min, this.max, this.operators));
+  this.questiondiv.text(this.questionsAsked[this.questionCounter].question);
+  this.answerArea.val('').trigger('focus');
+  this.resetTimer();
+  this.questionCounter++;
+};
+
+Quiz.prototype.resetTimer = function() {
+  this.timeLeft = this.timeLimit;
+  this.timer.text(this.timeLeft);
+};
+
+Quiz.prototype.setTimer = function(quizScope) {
+  return function() {
+    if(quizScope.timeLeft) {
+      quizScope.timer.text(--quizScope.timeLeft);
+    } else {
+      quizScope.resetTimer();
+      quizScope.showQuestion();
+    }
+  }
+};
+
+Quiz.prototype.trackScore = function() {
+  var _this = this;
+  return function() {
+    _this.incrementScore();
+    _this.questionsAsked.length < _this.totalQuestions ? _this.showQuestion() : _this.showResult();
+  }
+};
+
+Quiz.prototype.incrementScore = function() {
+//refactor
+  if(this.answerArea.val()) {
+    this.questionsAsked[this.questionCounter - 1].storeUserAnswer(this.answerArea.val());
+    if(this.questionsAsked[this.questionCounter - 1].matchResult()){
+      this.score++;
+      this.scoreboard.text(this.score);
+    }
+  }
+};
+
+Quiz.prototype.showResult = function() {
+  alert(this.score);
+  window.clearInterval(this.intervalTimer);
+  var _this = this;
+  this.wrongquestionsDiv.siblings(':not(#wrongQuestions, #wrongQuestions p, h2)').remove();
+  $(this.questionsAsked).each(function() {
+    if(!this.matchResult()) {
+      _this.wrongquestionsDiv.append($('<p/>', { text: `Question: ${ this.question } Result: ${ this.actualResult } Your Answer: ${ this.userAnswer }` }));
+    }
+  })
+};
