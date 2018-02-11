@@ -1,0 +1,74 @@
+body {
+  font-family: tahoma;
+}
+
+.email {
+  text-align: right;
+  font-size:13px;
+  color:black;
+}
+
+.email p {
+  margin: 0px;
+}
+
+.form-box {
+  background: #ececec;
+  border: 1px solid #bcbcbc;
+  width: 500px;
+  padding: 20px 25px; 
+}
+
+.form-box  ul{
+  display: table;
+  list-style-type: none;
+}
+
+.form-box ul li {
+  display: table-row;
+  margin-top: 1em;
+}
+
+.label {
+  display: table-cell;
+  text-align: right;
+  vertical-align: top;
+  padding-top: 16px;
+}
+
+.widget {
+  padding-top: 16px;
+  padding-left: 20px;
+  display: table-cell;
+}
+
+select {
+  width: 110px;
+  font-size: 13px;
+  color: #6f6f6f;
+}
+
+#address {
+  background: white;
+  border: 1px solid #b9b9b9;
+  width: 360px;
+  height: 135px;
+}
+
+#submit {
+  background: #dc2927;
+  border: 1px solid #a10200;
+  width: 130px;
+  height: 32px;
+  text-align: center;
+  font-size: 14px;
+  color: white;
+}
+
+.textarea {
+  text-align: top;
+  background: white;
+  border: 1px solid #b9b9b9;
+  width: 360px;
+  height: 25px;
+}

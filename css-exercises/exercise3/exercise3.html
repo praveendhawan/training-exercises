@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="exercise3.css">
+</head>
+<body>
+  <div class="image-icon">
+    <img src="./img/vinsol-logo.png" alt="VINSOL">
+  </div>
+
+  <div class="email">
+    <p>Email us at: <a href="" style="text-decoration:none;"><span id="links">sales@vinsol.com  </span> </a>Skype: <a href="" style="text-decoration:none;"><span id="links"> vinsol </span></a>
+  </div>
+   <hr color="#db2927" size="2px">
+  <div style="margin-left:400px">
+    <p style="font-family:tahoma; font-size:18px; color:#2c286d; margin-bottom:0px;">Please Fill the form Below</p>
+    <div class="form-box">
+      <form>
+        <ul>
+          <li>
+            <div class="label"><label for="first-name">First Name</label></div>
+            <div class="widget"><input type="text" id="first-name" class="textarea"></div>
+          </li>
+          <li>
+            <div class="label"><label for="last-name">Last Name</label></div>
+            <div class="widget"><input type="text" id="last-name" class="textarea"></div>
+          </li>
+          <li>
+            <div class="label"><label for="email">Email</label></div>
+            <div class="widget"><input type="email" id="email" class="textarea"></div>
+          </li>
+          <li>
+            <div class="label"><label for="password">Password</label></div>
+            <div class="widget"><input type="password" id="password" class="textarea"></div>
+          </li>
+          <li>
+            <div class="label"><label for="gender">Gender</label></div>
+            <div class="widget"><input type="radio" name="gender" value="male" id="gender">Male
+            <input type="radio" name="gender" value="female" id="gender" style="margin-left: 50px;">Female</div>
+          </li>
+          <li>
+            <div class="label"><label for="birtdate">Date of Birth</label></div>
+            <div class="widget">
+              <select id="birtdate">
+                <option value="DD" selected>DD</option>
+              </select>
+              <select id="birtdate">
+                <option value="MM" selected>MM</option>
+              </select>
+              <select id="birtdate">
+                <option value="YY" selected>YY</option>
+              </select></div>
+          </li>
+          <li>
+            <div class="label"><label for="address">Address</label></div>
+            <div class="widget"><input type="textarea" id="address"></div>
+          </li>
+          <li>
+            <div class="label"></div>
+            <div class="widget"><input type="submit" id="submit" value="Submit Details"></div>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
