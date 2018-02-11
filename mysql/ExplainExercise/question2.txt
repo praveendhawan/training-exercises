@@ -1,0 +1,31 @@
+We use EXPLAIN to optimize slow SQL queries used in our application. Lets say we have a comments table in our application that has a foreign key, user_id, referencing to users table. EXPLAINing the query that finds all the comments made by a user gives us following result.
+
+mysql> EXPLAIN SELECT * FROM comments WHERE user_id = 41;
+
++-------------+------+---------------+---------+-------+---------+-------------+
+| select_type | type | key  | key_len | ref  | rows    | Extra                 |
++-------------+------+------+---------+------+---------+-----------------------+
+| SIMPLE      | ALL  | NULL | NULL    | NULL | 1002345 | Using where           |
++-------------+------+---------------+---------+-------+---------+-------------+
+
+mysql> SELECT count(id) FROM comments;
+
++-----------+
+| count(id) |
++-----------+
+| 1002345   |
++-----------+
+
+2.1 The value under 'rows' column in the output of EXPLAIN query and SELECT query after it are same. What does it mean?
+
+The rows columns tells us that how many rows may be scanned by the query parser in order to
+  execute the select statement in explain command.It may or may not be true all the time.
+  The first command will not scan the table but instead collects its data from the table stats and indexes. 
+
+The second command count(id) starts scanning the table and count the number of rows in the 
+  table
+
+2.2 Is the SELECT query optimal? If no, how do we optimize it?
+
+key column is null. -> we can use an indexed key to find the matching row only. This will 
+  reduce the no. of scanned rows.We can make an index of "id" column to make it optimized.

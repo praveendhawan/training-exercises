@@ -1,0 +1,57 @@
+What do different columns in the output of EXPLAIN mean? What possible values can those have? What is the meaning of those values?
+
+Explain is a command which is used by mysql developers to optimize the queries.It analyzes the query and display its output to the user.
+Different Fields of Explain Output and their Values
+
+id - it is a sequntial identifier for each select in the query. It is of integer type.
+
+select_type - it gives the type of select statement. Its values can be
+  a) SIMPLE - query is simple select without subqueries or JOINS
+  b) PRIMARY - select is in outermost query in JOIN
+  c) DERIVED - select is a part of another subquery within FORM clause
+  d) DEPENDENT SUBQUERY - a subquery which is dependent on outer query
+  e) UNCACHABLE SUBQUERY - a subquery which is not cacheable
+  f) UNION - select is the second or later statement of a union
+  g) DEPENDENT UNION - second or later select of aunion which is dependent on outer query
+  h) UNION RESULT - select is a result of a UNION
+
+table - table referred to by the row of output
+
+type - it shows how the mysql joins the tables. possible values are as follows : 
+  a) system - the table has only zero or one row
+  b) const - the table only has one matching row which is indexed
+  c) eq_ref - all parts of an index are used by join and index is PRIMARY KEY
+  d) ref - all of the matching rows of indexed column are read for each combination of rows 
+           from the previous table.
+  e) fulltext - JOIN's uses table's FULLTEXT index
+  f) ref_or_null - this is same as ref but contains rows with null values also
+  g) index_merge - the indexes used by JOINs to merge tables will be in "Keys" column
+  h) unique_subquery - an IN subquery returns only one result from table
+  i) index_subquery - IN subquery returns more than one results from table
+  j) index - entire index tree is searched to find matching row
+  k) all - entire tables are scanned to find matching rows
+
+possible_keys - shows the keys which can be used by MYSQL to find rows from table
+
+key - indicates the actual index used by MYSQL
+
+key_len - indicates the length of index the Query Optimizer choose to use
+
+ref- shows the column or constants which are compared to index named in key column
+
+rows - lists the number of records which were examined to produce the output
+
+Extra - contains information about query optimization plan. values 'Using temporary', 'Using 
+        filesort' etc in this columns indicates that the query is not efficient
+  a) Distinct – Server is able to perform an optimization where it will stop searching for
+      more rows for the current row combination after it has found the first matching row
+  b) Not exists – Server is able to do a LEFT JOIN optimization where it will not examine
+      more rows in this table for the current row combination after it finds one row that matches the JOIN criteria.
+  c) range checked for each record – Server found no good index to use, but checks indexes
+      for each row. Slow, but faster than a full table scan.
+  d) Using filesort – Server will need to do an extra pass to sort the rows.
+  e) Using index – Server is able to return rows directly from the index instead of doing an 
+      additional seek to read the actual rows. Generally good news.
+  f) Using temporary – Server will need to create a temporary table to hold results. Often 
+      occurs with differing GROUP BY and ORDER BY columns.
+  g) Using where – Server is using values in the WHERE clause to limit returned rows.

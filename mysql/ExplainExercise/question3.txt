@@ -1,0 +1,35 @@
+In Rails world, we have someting called polymorphic associations (http://guides.rubyonrails.org/association_basics.html#polymorphic-associations). Lets say in our web application, we can let users comment on photographs and articles. Some of rows in comments table are represented as following:
+
+mysql> SELECT * FROM comments LIMIT 5;
+
++----+------------------+----------------+---------+
+| id | commentable_type | commentable_id | user_id |
++----+------------------+----------------+---------+
+| 1  + Article          | 1              | 1       |
++----+------------------+----------------+---------+
+| 2  + Photo            | 1              | 1       |
++----+------------------+----------------+---------+
+| 3  + Photo            | 2              | 2       |
++----+------------------+----------------+---------+
+| 4  + Photo            | 2              | 2       |
++----+------------------+----------------+---------+
+| 5  + Article          | 1              | 2       |
++----+------------------+----------------+---------+
+
+When we need to fetch comments of a user on a particular Article or Photo we form a query like:
+
+mysql> EXPLAIN SELECT * FROM comments WHERE commentable_id = 1 AND commentable_type = 'Article' AND user_id = 1;
+
++-------------+------+---------------+---------+-------+----------------------+
+| select_type | type | key  | key_len | ref  | rows    | Extra                |
++-------------+------+----------------+------+---------+----------------------+
+| SIMPLE      | ALL  | NULL | NULL    | NULL | 1000025 | Using where          |
++-------------+------+---------------+---------+-------+----------------------+
+
+It seems that we do not have any index on any of the columns. And whole comments table is scanned to fetch those comments.
+
+3.1 We decide to index columns in comments table to optimize the SELECT query. What column(s) will you index in which order? Ask the exercise creator for a hint if you are confused.
+
+The most frequently used key must be made index for the table. For example here we can make a composite index of (commentable_id, commentable_type, user_id) in this order for fast retrieval of result. But these indexes will not be used if we try to search rows based on single column condition.
+
+We can also use multiple indices for "commentable_id", "commentable_type", "user_id" for making query optimized but it will not be as optimized as the composite index.
