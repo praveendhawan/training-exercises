@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form</title>
+  </head>
+  <body bgcolor = 'lightgrey'>
+    <h2 align="center">HTML form exercise</h2>
+
+    <p> <strong style="color:red">Please note:</strong> This Exercise shows how HTML forms can be used.Submit button should submit the form and reset button should reset the form(revert the changes in the form fields). The form layout should be same as below.</p>
+      <form>
+        <table align="left">
+          <legend align="center"><b>Contact Form</b></legend>
+          <tr>
+            <td>
+              Your Name:
+            </td>
+            <td>
+              <input type="text" name="name" required>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Email:
+            </td>
+            <td>
+              <input type="text" name="email" required>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Phone Number:
+            </td>
+            <td>
+              <input type="text" name="phone number">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Websites:
+            </td>
+            <td colspan="2">
+              <input type="text" name="websites" size="30">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Comments:
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <textarea name="comments" rows="10" cols="50" required> </textarea>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <legend><b>Text Field</b></legend>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Your Name:
+            </td>
+            <td>
+              <input type="text" name="username">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Password:
+            </td>
+            <td>
+              <input type="password" name="password">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <legend><b>Radio Buttons</b></legend>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Do you like Pizzas?
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="radio" name="choice" value="Yes" checked>Yes<br>
+              <input type="radio" name="choice" value="No">No<br>
+              <input type="radio" name="choice" value="Maybe">Maybe<br>
+              <input type="radio" name="choice" value="Never tried">Never Tried<br>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <legend><b>Check Box</b></legend>
+              <input type="checkbox" name="check">Check this box if you like our service
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <legend><b>Text Area</b></legend>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              Anything you would like to say?<br>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <textarea name="likes" rows="5" cols="60"> </textarea>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <b>I like</b>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <select multiple size="5%">
+                <option value="mushrooms">mushrooms</option>
+                <option value="green peppers">green peppers</option>
+                <option value="onion">Onion</option>
+                <option value="tomatoes">tomatoes</option>
+                <option value="olives">olives</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <b>Menu</b>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Your Favourite Color:
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <select name="color">
+                <option value="Red">Red</option>
+                <option value="Green">Green</option>
+                <option value="Blue">Blue</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <b>Attach Files</b>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="text" name="filepath">
+            </td>
+            <td>
+              <input type="file" name="datafile">
+            </td>
+          <tr>
+              <td>
+                <b>Buttons</b>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+              </td>
+            </tr>
+        </table>
+      </form>
+  </body>
+</html>
