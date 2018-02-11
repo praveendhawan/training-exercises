@@ -1,0 +1,15 @@
+[submodule "GitExercise"]
+	path = GitExercise
+	url = ./GitExercise
+[submodule "GitTagExercise"]
+	path = GitTagExercise
+	url = ./GitTagExercise
+[submodule "training"]
+	path = training
+	url = ./test_project
+[submodule "test_project"]
+	path = test_project
+	url = ./test_project
+[submodule "ExerciseGitTag"]
+	path = ExerciseGitTag
+	url = ./ExerciseGitTag
